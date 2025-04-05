@@ -58,4 +58,16 @@
         </pluginRepository>
     </pluginRepositories>
 
+
+    <distributionManagement>
+        <repository>
+            <id>maven-central</id>
+            <url>http://13.201.63.159:8081/repository/maven-central/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://13.201.63.159:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
