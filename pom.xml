@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -12,6 +13,8 @@
 
     <properties>
         <docker.image.prefix>kammana</docker.image.prefix>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>    
 
     <dependencies>
@@ -29,45 +32,38 @@
         </dependency>
     </dependencies>
 
-    <!-- ✅ Merged Distribution Management Section -->
     <distributionManagement>
         <repository>
             <id>nexusRepo</id>
-            <url>http://13.233.230.166:8081/repository/maven-releases/</url>
+            <url>http://13.201.63.159:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>nexusRepo</id>
-            <url>http://13.233.230.166:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-
-        <repository>
-            <id>maven-releases</id>
-            <url>http://65.2.169.28:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>http://65.2.169.28:8081/repository/maven-snapshots/</url>
+            <url>http://13.201.63.159:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
     <pluginRepositories>
         <pluginRepository>    
             <id>maven1</id>
-            <name>Maven.org</name>
-            <url>http://repo1.maven.org/maven2</url>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2</url>
         </pluginRepository>
     </pluginRepositories>
 
-
-    <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <url>http://13.201.63.159:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>http://13.201.63.159:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
